@@ -1,0 +1,13 @@
+[package]
+name = "named-block"
+version = "0.1.0"
+authors = ["Alex Burka <aburka@seas.upenn.edu>"]
+
+description = "Macro implementing early-exit-from-any-block"
+homepage = "https://github.com/durka/named-block"
+repository = "https://github.com/durka/named-block"
+readme = "README.md"
+license = "MIT"
+keywords = ["catch", "early exit", "block", "macro"]
+
+[dependencies]
