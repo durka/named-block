@@ -11,3 +11,7 @@ license = "MIT"
 keywords = ["catch", "early exit", "block", "macro"]
 
 [dependencies]
+static-cond = "0.1"
+
+[features]
+"nightly" = []

@@ -40,6 +40,7 @@ Well, that was tedious to write (and read). Let's not do that again.
 
 ```rust
 #[macro_use] extern crate named_block;
+#[macro_use] extern crate static_cond;
 
 let x = block!('a: {
     break 'a 0;
