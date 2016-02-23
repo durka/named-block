@@ -40,7 +40,7 @@ Well, that was tedious to write (and read). Let's not do that again.
 
 ```rust
 #[macro_use] extern crate named_block;
-#[macro_use] extern crate static_cond;
+#[macro_use] extern crate static_cond; // not needed on nightly
 
 let x = block!('a: {
     break 'a 0;
@@ -55,7 +55,7 @@ How to use it
 
 First, add "named-block" as a dependency in `Cargo.toml`. Then, add `#[macro_use] extern crate named_block;` at the top of your crate root.
 
-If you are on nightly Rust, you can enable the "nightly" Cargo feature and skip the second step. Otherwise, you need to add "static-cond" in `Cargo.toml` and `#[macro_use] extern crate static_cond;` as well.
+If you are on nightly Rust, you can enable the "nightly" Cargo feature and skip the second step. Otherwise, you need to add "static-cond" in `Cargo.toml` and `#[macro_use] extern crate static_cond;` as well. (Check this crate's `Cargo.toml` to see which version of "static-cond" to use.)
 
 How it works
 ============
@@ -80,12 +80,12 @@ Limitations
             let closure = #[block(ignore)] {
                 move |Foo::Bar(x): Foo| -> i32 {
                     x + block!('a: {
-                        break 'a 42;
+                        break 'a 41;
                     })
                 }
             };
 
-            closure(Foo::Bar(0))
+            closure(Foo::Bar(1))
         });
         ```
 
