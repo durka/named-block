@@ -1,13 +1,24 @@
 // TODO
-// - comment macro
 // - support loops?
 // - eliminate the closure hole by recognizing nested calls and shadowed labels, then maintaining a whitelist?
 
+// the tests need more recursion to parse all the code
 #![cfg_attr(test, recursion_limit = "1000")]
+
+// on nightly, we can re-export static_cond!
 #![cfg_attr(feature = "nightly", feature(macro_reexport))]
 
-#[cfg(all(test, not(feature = "nightly")))]                #[macro_use] extern crate static_cond;
-#[cfg(feature = "nightly")] #[macro_reexport(static_cond)] #[macro_use] extern crate static_cond;
+#[cfg(all(test,                       // for testing ...
+          not(feature = "nightly")))] // ... on beta/stable ...
+#[macro_use]                          // ... we use the macros ...
+#[no_link]                            // ... but no code ...
+extern crate static_cond;             // ... from static-cond
+
+#[cfg(feature = "nightly")]    // on nightly ...
+#[macro_use]                   // ... we use the macros ...
+#[no_link]                     // ... but no code ...
+#[macro_reexport(static_cond)] // ... and re-export static-cond! ...
+extern crate static_cond;      // ... from static-cond
 
 /// Provides the "early exit from any block" control-flow primitive that was mentioned in [RFC 243][link].
 ///

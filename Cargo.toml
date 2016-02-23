@@ -1,6 +1,6 @@
 [package]
 name = "named-block"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Alex Burka <aburka@seas.upenn.edu>"]
 
 description = "Macro implementing early-exit-from-any-block"
@@ -11,7 +11,10 @@ license = "MIT"
 keywords = ["catch", "label", "block", "macro"]
 
 [dependencies]
+static-cond = { version = "0.1", optional = true }
+
+[dev-dependencies]
 static-cond = "0.1"
 
 [features]
-"nightly" = []
+"nightly" = ["static-cond"]
