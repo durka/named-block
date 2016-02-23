@@ -8,7 +8,7 @@ homepage = "https://github.com/durka/named-block"
 repository = "https://github.com/durka/named-block"
 readme = "README.md"
 license = "MIT"
-keywords = ["catch", "early exit", "block", "macro"]
+keywords = ["catch", "label", "block", "macro"]
 
 [dependencies]
 static-cond = "0.1"
