@@ -43,12 +43,12 @@
 ///         let closure = #[block(ignore)] {
 ///             move |Foo::Bar(x): Foo| -> i32 {
 ///                 x + block!('a: {
-///                     break 'a 42;
+///                     break 'a 41;
 ///                 })
 ///             }
 ///         };
 ///     
-///         closure(Foo::Bar(0))
+///         closure(Foo::Bar(1))
 ///     })
 /// );
 /// # }
@@ -199,6 +199,9 @@ macro_rules! block {
         block!(@scan $paren $life $ret ($($tail)*) -> ($($out)* #[$attr]) $ctx)
     };
     // ignore items: use, extern, static, const, unsafe trait/impl/fn, fn, mod, type, enum, trait, impl, struct
+    (@scan $paren:tt $life:tt $ret:ident (pub $($tail:tt)*) -> $out:tt $ctx:tt) => {
+        block!(@scan_item $paren $life $ret (pub $($tail)*) -> $out $ctx)
+    };
     (@scan $paren:tt $life:tt $ret:ident (use $($tail:tt)*) -> $out:tt $ctx:tt) => {
         block!(@scan_item $paren $life $ret (use $($tail)*) -> $out $ctx)
     };
