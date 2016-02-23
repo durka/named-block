@@ -50,6 +50,13 @@ let x = block!('a: {
 
 Fixed!
 
+How to use it
+=============
+
+First, add "named-block" as a dependency in `Cargo.toml`. Then, add `#[macro_use] extern crate named_block;` at the top of your crate root.
+
+If you are on nightly Rust, you can enable the "nightly" Cargo feature and skip the second step. Otherwise, you need to add "static-cond" in `Cargo.toml` and `#[macro_use] extern crate static_cond;` as well.
+
 How it works
 ============
 

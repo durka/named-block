@@ -6,7 +6,7 @@
 #![cfg_attr(test, recursion_limit = "1000")]
 #![cfg_attr(feature = "nightly", feature(macro_reexport))]
 
-#[cfg(all(test, not(feature = "nightly")))] #[macro_use] extern crate static_cond;
+#[cfg(all(test, not(feature = "nightly")))]                #[macro_use] extern crate static_cond;
 #[cfg(feature = "nightly")] #[macro_reexport(static_cond)] #[macro_use] extern crate static_cond;
 
 /// Provides the "early exit from any block" control-flow primitive that was mentioned in [RFC 243][link].
