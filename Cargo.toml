@@ -1,6 +1,6 @@
 [package]
 name = "named-block"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Alex Burka <aburka@seas.upenn.edu>"]
 
 description = "Macro implementing early-exit-from-any-block"
