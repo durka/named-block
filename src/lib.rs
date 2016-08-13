@@ -2,6 +2,8 @@
 // - eliminate the closure hole by recognizing nested calls and shadowed labels, then maintaining a whitelist?
 // - inline @up rule to reduce recursion depth
 
+#![cfg_attr(not(test), no_std)]
+
 // the tests need more recursion to parse all the code
 #![cfg_attr(test, recursion_limit = "1000")]
 
