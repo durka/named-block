@@ -1,9 +1,10 @@
 [package]
 name = "named-block"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Alex Burka <aburka@seas.upenn.edu>"]
 
 description = "Macro implementing early-exit-from-any-block"
+categories = ["rust-patterns"]
 homepage = "https://github.com/durka/named-block"
 repository = "https://github.com/durka/named-block"
 readme = "README.md"
